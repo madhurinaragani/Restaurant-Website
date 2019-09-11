@@ -1,0 +1,52 @@
+{% include "base.njk" %}
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.imgresponsive {
+    width: 45%;
+    height: auto;
+}
+</style>
+</head>
+<main class="cont">
+  <section>
+    <header>
+    <figure>
+      <img class="imgresponsive" id="x" src="RestaurantLocation.jpeg" alt ="Image" width="200" height="160">
+
+    <figcaption></figcaption>
+  </figure>
+  25200, Carlos Bee Blvd, CA 94542
+
+  </header>
+  <h4>
+  {{hour.hours}}
+
+ </h4>
+   </section>
+    <section>
+
+      <h4>Menu:</h4>
+      <div class="container">
+      <div class="row">
+      {% for menu in food.foodCats %}
+        <div class="col-3">
+        <section class="item-sec">
+            <header class="item-name">
+                <b>{{ menu.name }}</b>
+            </header>
+            <img src="{{ menu.img }}" alt ="Image" class="imgresponsive" width="100" height="100">
+        <ul>
+            {% for type in menu.food %}
+
+          <li>{{ type.name }} ------------ {{ type.price }}
+          <p>{{ type.description }}<p></li>
+          {% endfor %}
+        </ul>
+        </section>
+      </div>
+      {% endfor %}
+      </div>
+      </div>
+      </section>
+</main>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="bootstrap.css">
+
+    <title>{{title}}</title>
+    <style>
+
+    body {background-color: coral;
+     margin: 50px;}
+        header {text-align:center}
+
+
+        div.food {
+
+               padding-right: 30px;
+               padding-bottom: 50px;
+               padding-left: 80px;
+               border: gray 2px dotted;
+                }
+       div.a {
+            font-size: 25px;
+            font-style: italic;
+             }
+             img {
+              padding: 5px;
+              width: 150px;
+              height: 150px;
+              }
+              img.location {
+               padding: 5px;
+               width: 300px;
+               height: 250px;
+               }
+               #Foil{
+                 width:30%;
+                 height:20%;
+                 float:right;
+               }
+               ul {
+                padding: 1px;
+                border: 1px solid black;
+                align: center;
+                font-family: Verdana;
+               }
+               a:hover{
+                 background-color: yellow;
+
+               }
+               .topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+    </style>
+  <script src="jquery-3.3.1.min.js"></script>
+  <script src="bootstrap.bundle.js"></script>
+  <script>
+  function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+          x.className += " responsive";
+      } else {
+          x.className = "topnav";
+      }
+  }
+  </script>
+</head>
+<body>
+    <header><h1>RK Paradise</h1></header>
+
+<p>
+  <nav>
+
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <div class="topnav" id="myTopnav">
+
+    {% for item in links %}
+         <a class="nav-link" href="{{item.url}}">{{item.title}}</a>
+
+       {% endfor %}
+       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+
+ <i class="fa fa-bars"></i>
+</a>
+</div>
+    </ul>
+   </nav>
+   <h2> {{title}} </h2>
+   {% if layout %}
+     {% else %}
+       {{ contents | safe }}
+     {% endif %}
+
+
+</body>
+</html>
